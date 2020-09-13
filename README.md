@@ -48,7 +48,7 @@ month = {June}, year = {2020} }
 - Original [White-box Cartoonization Repo](https://github.com/SystemErrorWang/White-box-Cartoonization)
 - Cartoonizer with [TensorFlow Lite Repo](https://github.com/margaretmz/Cartoonizer-with-TFLite)
 - [Live application][liveapp]
-- [Repo](https://github.com/pratapvardhan/cartoonizer-with-tfjs/), Notebook, Colab
+- [Repo](https://github.com/pratapvardhan/cartoonizer-with-tfjs/), [Notebook](https://github.com/pratapvardhan/cartoonizer-with-tfjs/blob/master/White_box_Cartoonization.ipynb), [Colab](https://colab.research.google.com/github/pratapvardhan/cartoonizer-with-tfjs/blob/master/White_box_Cartoonization.ipynb)
 
 [cvpr2020]: https://openaccess.thecvf.com/content_CVPR_2020/papers/Wang_Learning_to_Cartoonize_Using_White-Box_Cartoon_Representations_CVPR_2020_paper.pdf
 [liveapp]: https://gramener.com/cartoonizer/
