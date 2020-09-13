@@ -1,0 +1,56 @@
+.home {
+  background-image: url(assets/wave.svg);
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+
+@keyframes placeHolderShimmer {
+  0%   { background-position: -468px 0; }
+  100% { background-position: 468px 0; }
+}
+
+.placeholder {
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeHolderShimmer;
+  animation-timing-function: linear;
+  background: #f6f7f8;
+  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  background-size: 800px 100px;
+  min-height: 350px;
+  position: relative;
+}
+
+.btn-xs {
+  padding: .125rem .25rem;
+  font-size: .9rem;
+  line-height: 1.5;
+  border-radius: .2rem;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #101749;
+  border-color: #101749;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #090d2a;
+  border-color: #070a1f;
+}
+
+.ripple {
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+.sm2 {
+  font-size: 66.66667% !important;
+}
+
+.cursor-pointer {
+  cursor: pointer !important;
+}

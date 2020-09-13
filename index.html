@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css" >
+  <title>Cartoonize your pictures</title>
+  <meta name="description" content="Cartoonize your pictures  in browser with TensorFlow.js" />
+  <meta property="og:title" content="Cartoonize your pictures" />
+  <meta property="og:url" content="https://pratapvardhan.github.io/cartoonizer-with-tfjs/" />
+  <meta property="og:description" content="Cartoonize your pictures  in browser with TensorFlow.js" />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="https://pratapvardhan.github.io/cartoonizer-with-tfjs/assets/demo.jpg" />
+  <meta property="og:image:type" content="image/png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@PratapVardhan" />
+  <meta name="twitter:title" content="Cartoonize your pictures" />
+  <meta name="twitter:description" content="Cartoonize your pictures  in browser with TensorFlow.js" />
+  <meta name="twitter:image:src" content="https://pratapvardhan.github.io/cartoonizer-with-tfjs/assets/demo.jpg" />
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-42126862-1"></script>
+  <script>
+    /* global dataLayer */
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-43573977-3');
+  </script>  
+</head>
+
+<body class="home container py-2">
+  <nav class="navbar navbar-expand-lg text-white">
+    <div class="container py-1">
+      <a class="text-white btn py-0" href=".">
+        <img height="32" alt="logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkAQAAAADJe6U1AAAABGdBTUEAALGPC/xhBQAAAAJ0Uk5TAAB2k804AAAANUlEQVR42mNgwAX4/x8AkvZgsh5M/geTP8CyH0ggP1BKMoLIH8wfwG54AHbPA7jb+P9jcz0AKpcxBQbNJ8sAAAAASUVORK5CYII=">
+        <span class="h5">Cartoonize</span>
+      </a>
+      <div class="d-sm-flex d-none font-weight-bold small">
+        <a href="#how" class="nav-link mx-1 text-white-50">How</a>
+        <a href="#how" class="nav-link mx-1 text-white-50">CartoonGAN</a>
+        <a target="_blank" href="https://github.com/pratapvardhan/cartoonizer-with-tfjs/" class="nav-link mx-1 text-white-50">GitHub</a>
+      </div>
+    </div>
+  </nav>
+  <div class="text-light text-center">
+    <h1 class="font-weight-bold h2 pb-3 text-monospace text-shadow">Cartoonize your pictures</h1>
+    <p>All of your data stays within your browser.</p>
+    <p class="small">Upload an image or try below examples</p>
+  </div>
+  <div class="card-deck m-4 py-2 px-4">
+    <div class="card shadow col-md-6">
+      <div class="card-body px-0 px-sm-2">
+        <div class="">
+          <label class="btn btn-primary btn-xs px-2">
+            Upload your Image <input type="file" id="file" name="file" accept="image/*" hidden>
+          </label>
+          <span>or Try <a href="#examples">below examples</a></span>
+        </div>
+        <img id="source" class="d-block img-fluid mx-auto" src="./assets/fedal.jpg"></img>
+        <div id="examples" class="mt-2">
+          <span class="sm2">Click on the images to try</span>
+          <div class="row px-3">
+            <img class="col-3 px-1 border h-100 cursor-pointer" src="./assets/messi-ronaldo.jpg">
+            <img class="col-3 px-1 border h-100 cursor-pointer" src="./assets/food.jpg">
+            <img class="col-3 px-1 border h-100 cursor-pointer" src="./assets/subway.jpg">            
+            <img class="col-3 px-1 border h-100 cursor-pointer" src="./assets/delhi.jpg">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card shadow col-md-6">
+      <div class="card-body px-0 px-sm-2">
+        <div class="d-flex justify-content-between align-items-baseline">
+          <h5 class="card-title">Cartoonized Image</h5>
+          <a id="download" class="btn btn-xs btn-primary px-2" download="cartoon.jpeg" href="">Download</a>
+        </div>
+        <canvas id="result" class="d-none mx-auto"></canvas>
+        <div id="status" class="placeholder text-center text-monospace pt-4">
+          Please wait. Running CartoonGAN in your browser ..
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <section class="container py-4 my-4 text-center bg-lighter shadow">
+    <h2 id="how" class="h5 py-3 font-weight-bold">How it works</h2>
+    <div class="col-md-9 mx-auto text-justify">
+      <p>
+        We used Generative Adversarial Network (GAN) model proposed in 
+        <a target="_blank" href="https://openaccess.thecvf.com/content_CVPR_2020/html/Wang_Learning_to_Cartoonize_Using_White-Box_Cartoon_Representations_CVPR_2020_paper.html">
+          Learning to Cartoonize Using White-box Cartoon Representations</a> (CVPR 2020) by
+        Xinrui Wang and Jinze Yu.
+        Our idea was to test if it is reasonably possible to perform model inferences in
+        the browser clients with CPUs only. Without needing to send any of user's data (images) to servers.
+      </p>
+      <p>Here's the application flow and architecture:</p>
+      <img class="d-block img-fluid mx-auto p-4" src="./assets/flow.jpg">
+      <p>
+        <a href="https://www.tensorflow.org/">TensorFlow</a> Saved models are converted to 
+        <a href="https://www.tensorflow.org/js/">TensorFlow.js</a> models.
+        Images are padded and scaled to 256px before they are fed to the model.
+        This rescaling is done to speed up the processing and might reduce the quality too.</p>
+      <p>
+        Model footprint is ~1.5MB. These models in the browsers without GPU acceleration could manage to cartoonize,
+        but takes anywhere between 5-10 seconds for processing.
+        This is much slower than tflite models performance in mobile devices.
+        However, web browsers benefit from users not needing to install anything or transmitting data outside of their systems.
+      </p>
+      <h2 class="h6">Credits</h2>
+      <ul class="small pl-3">
+        <li>
+          Original paper: <a target="_blank" href="https://openaccess.thecvf.com/content_CVPR_2020/html/Wang_Learning_to_Cartoonize_Using_White-Box_Cartoon_Representations_CVPR_2020_paper.html">
+            Learning to Cartoonize Using White-box Cartoon Representations</a> (CVPR 2020) by
+          Xinrui Wang and Jinze Yu.
+        </li>
+        <li>
+          <a target="_blank" href="https://blog.tensorflow.org/2020/09/how-to-create-cartoonizer-with-tf-lite.html">TensorFlow Lite conversion</a>: by
+          <a target="_blank" href="https://twitter.com/margaretmz">Margaret Maynard-Reid</a> and
+          <a target="_blank" href="https://twitter.com/RisingSayak">Sayak Paul</a>.
+        </li>
+        <li>
+          App made by <a target="_blank" href="https://twitter.com/PratapVardhan">Pratap Vardhan</a>
+        </li>
+      </ul>
+
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-wasm/dist/tf-backend-wasm.js"></script>
+  <script async src="script.js"></script>
+</body>
+</html>
