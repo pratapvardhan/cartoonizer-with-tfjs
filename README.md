@@ -8,9 +8,9 @@ We used Generative Adversarial Network (GAN) model proposed in
 Our idea was to test if it is reasonably possible to perform model inferences in
 the browser clients with CPUs only. Without needing to send any of user's data (images) to servers.
 
-**[App preview][liveapp]**:
+**[App preview][liveapp]**: Upload an image or try examples
 
-<TOOD: GIF HERE>
+[![demo](./assets/demo.jpg)][liveapp]
 
 Here's the application flow and architecture:
 
@@ -51,5 +51,5 @@ month = {June}, year = {2020} }
 - [Repo](https://github.com/pratapvardhan/cartoonizer-with-tfjs/), Notebook, Colab
 
 [cvpr2020]: https://openaccess.thecvf.com/content_CVPR_2020/papers/Wang_Learning_to_Cartoonize_Using_White-Box_Cartoon_Representations_CVPR_2020_paper.pdf
-[liveapp]: https://pratapvardhan.github.io/cartoonizer-with-tfjs/
+[liveapp]: https://gramener.com/cartoonizer/
 [repo]: https://github.com/pratapvardhan/cartoonizer-with-tfjs/

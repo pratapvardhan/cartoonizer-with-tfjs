@@ -4,22 +4,9 @@
   background-position: top center;
 }
 
-@keyframes placeHolderShimmer {
-  0%   { background-position: -468px 0; }
-  100% { background-position: 468px 0; }
-}
-
 .placeholder {
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: infinite;
-  animation-name: placeHolderShimmer;
-  animation-timing-function: linear;
   background: #f6f7f8;
-  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
-  background-size: 800px 100px;
-  min-height: 350px;
-  position: relative;
+  min-height: 300px;
 }
 
 .btn-xs {
@@ -39,12 +26,6 @@
   color: #fff;
   background-color: #090d2a;
   border-color: #070a1f;
-}
-
-.ripple {
-  position: relative;
-  overflow: hidden;
-  transform: translate3d(0, 0, 0);
 }
 
 .sm2 {

@@ -21,7 +21,7 @@ const runModel = async () => {
       APP.canvas.classList.add('d-none')
       APP.canvas.classList.remove('d-block')
     }, 0)
-    setTimeout(() => { predict(APP.source) }, 10)
+    setTimeout(() => { predict(APP.source) }, 50)
   }
 }
 
